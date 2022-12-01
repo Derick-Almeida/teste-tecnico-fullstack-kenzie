@@ -17,12 +17,11 @@ const authUser = (req: Request, res: Response, next: NextFunction) => {
   jwt.verify(token, process.env.SECRET_KEY as string, (err: any, decoded: any) => {
     if (err) {
       return res.status(401).json({
-        status: "Error",
         message: "Invalid token",
       });
     }
 
-    req.user = {
+    req.customer = {
       id: decoded.sub,
     };
 

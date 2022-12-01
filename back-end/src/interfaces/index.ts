@@ -1,16 +1,12 @@
-interface IContactRequest {
+interface IRequest {
   fullName: string;
   emails: string[];
   phones: string[];
 }
 
-interface ICustomerRequest extends IContactRequest {
-  password: string;
-}
-
 interface ICustomerLogin {
   email: string;
-  password: string;
+  phone: string;
 }
 
-export { ICustomerRequest, ICustomerLogin, IContactRequest };
+export { IRequest, ICustomerLogin };

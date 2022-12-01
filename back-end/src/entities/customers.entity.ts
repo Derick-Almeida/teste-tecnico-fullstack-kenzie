@@ -19,10 +19,6 @@ export class Customer {
   @Column({ length: 255 })
   fullName: string;
 
-  @Column({ length: 255 })
-  @Exclude()
-  password: string;
-
   @OneToMany(() => Email, (email) => email.customer, { eager: true })
   emails: Email[];
 
@@ -30,7 +26,7 @@ export class Customer {
   phones: Phone[];
 
   @OneToMany(() => ContactCustomer, (contactCustomer) => contactCustomer.customer, { eager: true })
-  customers: ContactCustomer[];
+  contacts: ContactCustomer[];
 
   @CreateDateColumn()
   createdAt: Date;

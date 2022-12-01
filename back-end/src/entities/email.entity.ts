@@ -9,7 +9,7 @@ export class Email {
   @Exclude()
   readonly id: string;
 
-  @Column({ length: 255 })
+  @Column({ length: 255, unique: true })
   email: string;
 
   @Exclude()

@@ -1,18 +1,17 @@
-import { IContactRequest, ICustomerLogin, ICustomerRequest } from "../../interfaces";
+import { IRequest, ICustomerLogin } from "../../interfaces";
 
-const customerData: ICustomerRequest = {
+const customerData: IRequest = {
   fullName: "Jorge jr",
-  password: "123456",
   emails: ["jorge@mail.com", "jorge_quer_ser_grande@mail.com"],
   phones: ["7929205261", "6721444376", "6731227041"],
 };
 
 const customerLogin: ICustomerLogin = {
   email: "jorge@mail.com",
-  password: "123456",
+  phone: "7929205261",
 };
 
-const contactData: IContactRequest = {
+const contactData: IRequest = {
   fullName: "Ambrósio de Amaral",
   emails: ["ambrosio@mail.com"],
   phones: ["8337655152", "1329091141"],

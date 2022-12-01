@@ -9,7 +9,7 @@ export class Phone {
   @Exclude()
   readonly id: string;
 
-  @Column({ length: 255 })
+  @Column({ length: 255, unique: true })
   phone: string;
 
   @Exclude()

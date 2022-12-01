@@ -11,11 +11,11 @@ describe("teste das rotas de usuário", () => {
   let expectedKeys: string[] = [
     "id",
     "fullName",
+    "createdAt",
+    "updatedAt",
     "emails",
     "phones",
     "contacts",
-    "createdAt",
-    "updatedAt",
   ];
 
   beforeAll(async () => {
