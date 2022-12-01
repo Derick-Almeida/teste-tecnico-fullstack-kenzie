@@ -4,7 +4,7 @@ import request from "supertest";
 import app from "../../app";
 import { contactData, customerData, customerLogin } from "../mocks";
 
-describe("teste das rotas de usuário", () => {
+describe("contact route test", () => {
   let connection: DataSource;
   let token: string = "";
   let contactId: string = "";
@@ -137,7 +137,9 @@ describe("teste das rotas de usuário", () => {
   });
 
   test("DELETE /contacts/:id - It should not be possible to delete a contact with invalid id", async () => {
-    const response = await request(app).delete(`/contacts/${invalidId}`);
+    const response = await request(app)
+      .delete(`/contacts/${invalidId}`)
+      .set("Authorization", `Bearer ${token}`);
 
     expect(response.status).toEqual(404);
     expect(response.body).toHaveProperty("message");

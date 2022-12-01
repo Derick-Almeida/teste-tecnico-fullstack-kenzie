@@ -1,13 +1,14 @@
-import { Exclude } from "class-transformer";
 import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinTable,
+  ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { ContactCustomer } from "./contactsCustomers.entity";
+import { Contact } from "./contacts.entity";
 import { Email } from "./email.entity";
 import { Phone } from "./phones.entity";
 
@@ -25,8 +26,9 @@ export class Customer {
   @OneToMany(() => Phone, (phone) => phone.customer, { eager: true })
   phones: Phone[];
 
-  @OneToMany(() => ContactCustomer, (contactCustomer) => contactCustomer.customer, { eager: true })
-  contacts: ContactCustomer[];
+  @ManyToMany(() => Contact, { eager: true })
+  @JoinTable()
+  contacts: Contact[];
 
   @CreateDateColumn()
   createdAt: Date;

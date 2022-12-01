@@ -4,7 +4,7 @@ import request from "supertest";
 import app from "../../app";
 import { customerData, customerLogin } from "../mocks";
 
-describe("teste das rotas de usuário", () => {
+describe("customer route test", () => {
   let connection: DataSource;
   let token: string = "";
   let customerId: string = "";

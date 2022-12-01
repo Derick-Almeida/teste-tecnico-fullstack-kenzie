@@ -2,7 +2,7 @@ import AppDataSource from "../../data-source";
 import { Customer } from "../../entities/customers.entity";
 import AppError from "../../errors/AppError";
 
-const getCustomerService = async (customerId: string): Promise<object> => {
+const listContactsService = async (customerId: string): Promise<object[]> => {
   const customerRepository = AppDataSource.getRepository(Customer);
   const customer = await customerRepository.findOneBy({ id: customerId });
 
@@ -10,8 +10,6 @@ const getCustomerService = async (customerId: string): Promise<object> => {
     throw new AppError("Customer not found.", 404);
   }
 
-  const emailsFormated = customer?.emails.map((obj) => obj.email);
-  const phonesFormated = customer?.phones.map((obj) => obj.phone);
   const contacts = customer.contacts.map((contact) => {
     return {
       ...contact,
@@ -20,12 +18,7 @@ const getCustomerService = async (customerId: string): Promise<object> => {
     };
   });
 
-  return {
-    ...customer,
-    emails: emailsFormated,
-    phones: phonesFormated,
-    contacts,
-  };
+  return contacts;
 };
 
-export default getCustomerService;
+export default listContactsService;
