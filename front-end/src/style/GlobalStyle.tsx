@@ -14,8 +14,8 @@ export default createGlobalStyle`
     body{}
 `;
 
-export const ThemeForm = styled.form`
-  background: #008f3b;
+export const ThemeForm = styled.div`
+  /* background: #008f3b; */
 
   display: flex;
   flex-direction: column;

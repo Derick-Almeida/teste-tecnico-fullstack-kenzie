@@ -8,8 +8,6 @@ export const ThemeHome = styled.main`
   align-items: center;
   justify-content: center;
 
-  background: var(--pink);
-
   > form {
     /* border-radius: 50%; */
   }
