@@ -1,7 +1,6 @@
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
 import MultipleInput from "../../../components/MultipleInput";
-import { ThemeForm } from "../../../style/GlobalStyle";
 
 import * as yup from "yup";
 import { FieldValues, useForm } from "react-hook-form";
@@ -36,33 +35,34 @@ const Register = () => {
   };
 
   return (
-    <ThemeForm>
-      <h2>Cadastro</h2>
-      <form onSubmit={handleSubmit(registerContact)}>
-        <Input
-          type="text"
-          icon
-          placeholder="Seu nome completo"
-          name="fullName"
-          register={register}
-        />
-        <MultipleInput
-          register={register}
-          type="email"
-          variant="email"
-          name="email"
-          holder="email"
-        />
-        <MultipleInput
-          register={register}
-          type="text"
-          variant="phone"
-          name="phone"
-          holder="telefone"
-        />
-        <Button text="Cadastrar" type="submit" />
-      </form>
-    </ThemeForm>
+    <></>
+    // <ThemeForm>
+    //   <h2>Cadastro</h2>
+    //   <form onSubmit={handleSubmit(registerContact)}>
+    //     <Input
+    //       type="text"
+    //       icon
+    //       placeholder="Seu nome completo"
+    //       name="fullName"
+    //       register={register}
+    //     />
+    //     <MultipleInput
+    //       register={register}
+    //       type="email"
+    //       variant="email"
+    //       name="email"
+    //       holder="email"
+    //     />
+    //     <MultipleInput
+    //       register={register}
+    //       type="tel"
+    //       variant="phone"
+    //       name="phone"
+    //       holder="telefone"
+    //     />
+    //     <Button text="Cadastrar" type="submit" />
+    //   </form>
+    // </ThemeForm>
   );
 };
 

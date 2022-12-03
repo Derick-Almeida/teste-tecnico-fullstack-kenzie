@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
     *{
@@ -9,15 +9,19 @@ export default createGlobalStyle`
     :root{
         --white: #ffffff;
         --black: #000000;
-        --pink: #ff506f;
+        --pink-1: #ffa5be;
+        --pink-2: #ff506f;
     }
-    body{}
-`;
-
-export const ThemeForm = styled.div`
-  /* background: #008f3b; */
-
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    body{
+        background: var(--white);
+        min-height: 100vh;
+        min-width: 100%;
+    }
+    button {
+        cursor: pointer;
+        outline: none;
+    }
+    input{
+        outline: none;
+    }
 `;

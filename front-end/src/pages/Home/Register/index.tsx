@@ -1,7 +1,7 @@
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
 import MultipleInput from "../../../components/MultipleInput";
-import { ThemeForm } from "../../../style/GlobalStyle";
+import { ThemeForm } from "../style";
 
 import * as yup from "yup";
 import { FieldValues, useForm } from "react-hook-form";
@@ -55,7 +55,7 @@ const Register = () => {
         />
         <MultipleInput
           register={register}
-          type="text"
+          type="tel"
           variant="phone"
           name="phone"
           holder="telefone"

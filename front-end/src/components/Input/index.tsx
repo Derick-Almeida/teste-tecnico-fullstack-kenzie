@@ -6,25 +6,14 @@ import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { FieldValues, UseFormRegister } from "react-hook-form";
 
 interface IProps extends InputHTMLAttributes<HTMLInputTypeAttribute> {
-  label?: string;
   icon?: boolean;
   variant?: string;
   register?: UseFormRegister<FieldValues>;
 }
 
-const Input = ({
-  label,
-  placeholder,
-  type,
-  icon = false,
-  variant,
-  register,
-  name,
-  className,
-}: IProps) => {
+const Input = ({ placeholder, type, icon = false, variant, register, name, className }: IProps) => {
   return (
     <ThemeInput>
-      {label && <p>{label}</p>}
       <div>
         {icon && (
           <>

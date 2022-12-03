@@ -6,17 +6,14 @@ import { Customer } from "./customers.entity";
 @Entity("phones")
 export class Phone {
   @PrimaryGeneratedColumn("uuid")
-  @Exclude()
   readonly id: string;
 
   @Column({ length: 255, unique: true })
   phone: string;
 
-  @Exclude()
   @ManyToOne(() => Customer, { onDelete: "CASCADE" })
   customer: Customer;
 
-  @Exclude()
   @ManyToOne(() => Contact, { onDelete: "CASCADE" })
   contact: Contact;
 }

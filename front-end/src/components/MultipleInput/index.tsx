@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FieldValues, UseFormRegister } from "react-hook-form";
 import Input from "../Input";
+import { Container } from "./style";
 
 interface IProps {
   register?: UseFormRegister<FieldValues>;
@@ -14,7 +15,7 @@ const MultipleInput = ({ register, name, variant, holder, type }: IProps) => {
   const [fields, setFields] = useState<number[]>([]);
 
   return (
-    <div>
+    <Container>
       <Input
         type={type}
         icon
@@ -23,8 +24,8 @@ const MultipleInput = ({ register, name, variant, holder, type }: IProps) => {
         name={name}
         register={register}
       />
-      {fields.map(() => (
-        <>
+      {fields.map((i) => (
+        <div key={i} className="extraInputs">
           <Input
             type={type}
             icon
@@ -32,19 +33,32 @@ const MultipleInput = ({ register, name, variant, holder, type }: IProps) => {
             className={name}
             placeholder={`Novo ${holder}`}
           />
-          {fields.length >= 4 && <span>Campos de email atingiu o limite</span>}
-        </>
+          <span
+            id={String(i)}
+            onClick={(e: any) => {
+              const inputId = +e.target.id;
+              const inputIndex = fields.indexOf(inputId);
+              fields.splice(inputIndex, 1);
+              setFields([...fields]);
+            }}
+          >
+            x
+          </span>
+        </div>
       ))}
-      <span
-        onClick={() => {
-          if (fields.length < 4) {
-            setFields([...fields, fields.length]);
-          }
-        }}
-      >
-        Adicionar outro {holder}
-      </span>
-    </div>
+      {fields.length >= 4 && <p>Campos de {holder} atingiu o limite*</p>}
+      {fields.length < 4 && (
+        <span
+          onClick={() => {
+            if (fields.length < 4) {
+              setFields([...fields, fields.length]);
+            }
+          }}
+        >
+          Adicionar outro {holder}
+        </span>
+      )}
+    </Container>
   );
 };
 

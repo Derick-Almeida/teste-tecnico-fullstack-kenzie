@@ -5,8 +5,12 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
 }
 
-const Button = ({ text, type }: IButtonProps) => {
-  return <ThemeButton type={type}>{text}</ThemeButton>;
+const Button = ({ text, type, onClick }: IButtonProps) => {
+  return (
+    <ThemeButton onClick={onClick} type={type}>
+      {text}
+    </ThemeButton>
+  );
 };
 
 export default Button;
