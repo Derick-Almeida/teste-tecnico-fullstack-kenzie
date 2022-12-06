@@ -59,7 +59,10 @@ const Menu = () => {
       >
         Deletar conta
       </p>
-      <Button text="Sair" onClick={() => setModal(true)} />
+      <Button text="Sair" onClick={() => {
+          localStorage.clear();
+          window.location.reload();
+        }} />
     </ThemeMenu>
   );
 };
